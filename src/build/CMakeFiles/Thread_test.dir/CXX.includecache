@@ -1,0 +1,18 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/yuxiao/Projects/muduo/xmuduo/src/08/Thread.cpp
+Thread.h
+/Users/yuxiao/Projects/muduo/xmuduo/src/08/Thread.h
+iostream
+-
+
+/Users/yuxiao/Projects/muduo/xmuduo/src/08/Thread.h
+pthread.h
+-
+

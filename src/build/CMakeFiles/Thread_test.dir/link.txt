@@ -1,0 +1,1 @@
+g++  -g -Wall -std=c++11 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk -Wl,-search_paths_first -Wl,-headerpad_max_install_names  CMakeFiles/Thread_test.dir/Thread_test.cpp.o CMakeFiles/Thread_test.dir/Thread.cpp.o  -o bin/Thread_test -lpthread 
