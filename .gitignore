@@ -1,9 +1,16 @@
-.vscode
-build
-# Prerequisites
-*.d
+# Ignore all
+*
 
-# Compiled Object files
+# Unignore all with extensions
+!*.*
+
+# Unignore all dirs
+!*/
+
+
+.DS_Store
+*/.DS_Store
+
 *.slo
 *.lo
 *.o
@@ -32,3 +39,41 @@ build
 *.exe
 *.out
 *.app
+
+
+**/cmake-build-debug
+**/CMakeCache.txt
+**/cmake_install.cmake
+**/install_manifest.txt
+**/CMakeFiles/
+**/CTestTestfile.cmake
+**/Makefile
+**/*.cbp
+**/CMakeScripts
+**/compile_commands.json
+
+include/divisible/*
+bin/*
+lib/*
+test/test_runner
+
+## Local 
+
+.idea/workspace.xml
+
+build/release/*
+build/debug/*
+build/run/*
+build/*
+*/build/*
+
+include/*
+lib/*
+bin/*
+.bash/
+bin/bootstrap
+bin/lib-bash
+
+.idea
+
+.vscode
