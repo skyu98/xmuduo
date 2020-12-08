@@ -1,3 +1,0 @@
-/Users/yuxiao/Projects/muduo/xmuduo/src/build/CMakeFiles/rebuild_cache.dir
-/Users/yuxiao/Projects/muduo/xmuduo/src/build/CMakeFiles/edit_cache.dir
-/Users/yuxiao/Projects/muduo/xmuduo/src/build/CMakeFiles/Thread_test.dir
