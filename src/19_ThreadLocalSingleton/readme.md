@@ -11,5 +11,5 @@
 所以在```destructor()```中，应该```delete obj;```而不是```delete t_value_```，否则```Test1```的析构函数不会被调用，内存没有被正确释放，造成内存泄漏。
 
 # 3.ThreadLocalSingleton<T> 和 Singleton<ThreadLocal<T>>的区别
-前者是每一个线程，都有一份自己的单例T* t_value_。可以通过各自的这个指针，去访问各自的对象。线程间通过一个```static deleter 和 static pkey```来管理。
-后者是所有线程共享一个单例ThreadLocal<T>，通过其中的```static pkey```去访问各自的对象。
+前者是每一个线程，都有一份自己的单例T* t_value_。可以通过各自的这个指针，去访问各自的对象。所有线程的单例对象，都通过同一个```static deleter 和 static pkey```来管理。```static deleter```初始化时注册回调的销毁函数，```static pkey```是键值对的键。
+后者是所有线程共享一个单例ThreadLocal<T>，通过其中的```static pkey```去访问各自的对象。初始化单例时时直接注册回调的销毁函数。
