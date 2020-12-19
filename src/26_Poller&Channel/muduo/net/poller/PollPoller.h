@@ -47,7 +47,7 @@ class PollPoller : public Poller
 
  private:
   void fillActiveChannels(int numEvents,
-                          ChannelList* activeChannels) const;   // 将有对应事件发生的fd的channel集中放到activeChannels
+                          ChannelList* activeChannels) const;   // 将有对应事件发生的pollfd的channel集中放到activeChannels
 
   typedef std::vector<struct pollfd> PollFdList;
   typedef std::map<int, Channel*> ChannelMap;	// key是文件描述符fd，value是Channel*。已知fd，找到对应的channel

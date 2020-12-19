@@ -58,7 +58,7 @@ Timestamp EPollPoller::poll(int timeoutMs, ChannelList* activeChannels)
   int numEvents = ::epoll_wait(epollfd_,
                                &*events_.begin(),
                                static_cast<int>(events_.size()),
-                               timeoutMs);
+                               timeoutMs);         // 调用epoll，返回有事件发生的结构体数组
   Timestamp now(Timestamp::now());
   if (numEvents > 0)
   {
@@ -86,19 +86,19 @@ void EPollPoller::fillActiveChannels(int numEvents,
   assert(implicit_cast<size_t>(numEvents) <= events_.size());
   for (int i = 0; i < numEvents; ++i)
   {
-    Channel* channel = static_cast<Channel*>(events_[i].data.ptr);
+    Channel* channel = static_cast<Channel*>(events_[i].data.ptr);   // epoll直接返回了有事件发生的结构体数组
 #ifndef NDEBUG
     int fd = channel->fd();
-    ChannelMap::const_iterator it = channels_.find(fd);
+    ChannelMap::const_iterator it = channels_.find(fd);    // 这里已经说明，不需要通过Map去找，因为结构体中有指向channel的指针
     assert(it != channels_.end());
     assert(it->second == channel);
 #endif
-    channel->set_revents(events_[i].events);
+    channel->set_revents(events_[i].events);          // 同样的操作，通过返回的结构体去更新channel
     activeChannels->push_back(channel);
   }
 }
 
-void EPollPoller::updateChannel(Channel* channel)
+void EPollPoller::updateChannel(Channel* channel)   // 这里与poll很不同
 {
   Poller::assertInLoopThread();
   LOG_TRACE << "fd = " << channel->fd() << " events = " << channel->events();

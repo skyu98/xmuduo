@@ -40,7 +40,7 @@ class EPollPoller : public Poller
   static const int kInitEventListSize = 16;
 
   void fillActiveChannels(int numEvents,
-                          ChannelList* activeChannels) const;
+                          ChannelList* activeChannels) const;  // 将有对应事件发生的pollfd的channel集中放到activeChannels
   void update(int operation, Channel* channel);
 
   typedef std::vector<struct epoll_event> EventList;
