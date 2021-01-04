@@ -27,6 +27,6 @@ int main()
   acceptor.setNewConnectionCallback(newConnection);
   acceptor.listen();
 
-  loop.loop();   // 应该有8个fd。3是wakeup_fd, 4是epoll_fd, 5是listen_fd, 6是idle_fd，7是连接生成的conn_fd
+  loop.loop();   // 应该有9个fd。3是wakeup_fd, 4是epoll_fd, 5是listen_fd, 6是timer_fd（TimerQueue里面），7是idle_fd，8是连接生成的conn_fd
 }
 
