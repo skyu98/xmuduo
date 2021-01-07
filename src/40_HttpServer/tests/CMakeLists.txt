@@ -1,0 +1,2 @@
+add_executable(TcpClient_test TcpClient_test.cc)
+target_link_libraries(TcpClient_test muduo_net)
